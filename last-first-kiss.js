@@ -8,7 +8,5 @@ return arr.length - 1
 }
 
 function kiss(arr){
-let first = arr[0]
-let last = arr.length - 1
 return first(arr), last(arr)
 }
