@@ -4,13 +4,13 @@ const obj = Object.freeze({
   str: 'hello',
   num: 42,
   bool: true,
-  undef: undefined,
-  nested: Object.freeze({
+  undef: undefined,});
+  const nested = Object.freeze({
     arr: Object.freeze([4, undefined, '2']),
     obj: Object.freeze({
       str: 'world',
-      num: 3.14,
+      num: 3,
       bool: false
     })
-  })
-});
+  });
+
