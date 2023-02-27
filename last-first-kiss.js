@@ -3,10 +3,10 @@ return arr[0]
 }
 
 function last(arr){
-return arr.length - 1
+return arr[arr.length -1]
 
 }
 
 function kiss(arr){
-return first(arr), last(arr)
+return [last(arr), first(arr)]
 }
