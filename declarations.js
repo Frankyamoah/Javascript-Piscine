@@ -1,1 +1,1 @@
-const escapeStr = '\\ \\/ " \'';
+const escapeStr = '`\\ \\/ " \'';
