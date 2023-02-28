@@ -1,6 +1,5 @@
 function concatStr(str1,str2){
-    string3 = str1 + str2;
-    return string(string3);
+  return String(str1) + String(str2)
 
 }
 
