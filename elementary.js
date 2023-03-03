@@ -30,11 +30,14 @@ while (a >= b){
     a -= b; 
     quotient++
 }
-return sign * quotient 
-    }
+if (sign < 0){
+    quotient = -quotient
+}
+return quotient 
+}
 
 
-    function modulo(a, b) {
+function modulo(a, b) {
         if (b === 0) {
           return NaN;
         }
