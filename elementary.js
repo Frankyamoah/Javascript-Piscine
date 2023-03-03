@@ -38,29 +38,6 @@ return quotient
 
 
 function modulo(a, b) {
-        if (b === 0) {
-          return NaN;
-        }
-        let aNegative = false;
-        let bNegative = false;
-        if (b < 0) {
-          b = -b;
-          bNegative = true;
-        }
-        if (a < 0) {
-          a = -a;
-          aNegative = true;
-        }
-        let remainder = a;
-        while (remainder >= b) {
-          remainder -= b;
-        }
-        if (bNegative) {
-          remainder = -remainder;
-        }
-        if (aNegative && bNegative || !aNegative && !bNegative) {
-          remainder = -remainder;
-        }
-        return remainder;
-      }
+    return a - multiply(divide(a,b), b)
+}
       
