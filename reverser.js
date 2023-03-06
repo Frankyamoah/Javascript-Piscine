@@ -3,7 +3,7 @@ function reverse(str){
     for (let i = str.length - 1; i >= 0; i--){
        result.push(str[i]);
     }
-       if (typeof strOrArr === 'string') {
+       if (typeof str === 'string') {
         return result.join('');
       } else {
         return result;
