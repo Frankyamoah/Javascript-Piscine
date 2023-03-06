@@ -1,16 +1,13 @@
-function pyramid(char, height) {
-    let result = ''; // initialize an empty string to build the pyramid
-    for (let i = 0; i < height; i++) { // loop through each row
-      // add spaces to align the pyramid to the center
-      for (let j = 0; j < height - i - 1; j++) {
-        result += ' ';
-      }
-      // add characters to create the pyramid
-      for (let k = 0; k < 2 * i + 1; k++) {
-        result += char;
-      }
-      result += '\n'; // add a newline character after each row
+function pyramid(str, num) {
+    let res = ''
+    for (let i = 1; i <= num; i++) {
+        res += ' '.repeat(num - i).repeat(str.length)
+        res += str.repeat(i * 2 - 1)
+        if (i === num) {
+            return res
+        }
+        res += '\n'
     }
-    return result.slice(0, result.length - 1); // return the final pyramid string
-  }
-  
+
+    return res
+}
