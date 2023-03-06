@@ -1,5 +1,5 @@
 function reverse(str){
-    if (str === 'string') {
+    if (typeof str === 'string') {
         str = str.split('')
     }
     result = [];
@@ -8,7 +8,4 @@ function reverse(str){
     }
     return result;
 }
-
-console.log(reverse("[1, 2, 3]), [3, 2, 1]"))
-
 
