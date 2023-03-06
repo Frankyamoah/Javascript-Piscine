@@ -10,6 +10,6 @@ function triangle(char, height) {
       }
       result += '\n'; // add a newline character after each row
     }
-    return result; // return the final triangle string
+    return result += '\n'; // return the final triangle string
   }
   
