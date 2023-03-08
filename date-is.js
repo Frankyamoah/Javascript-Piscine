@@ -1,7 +1,8 @@
 // isValid: accepts a Date, and returns false if the Date is invalid.
 function isValid(date) {
-    return !isNaN(date); // returns true if the input date is valid, false otherwise
+    return !isNaN(date) && date !== ''; // returns true if the input date is valid, false otherwise
   }
+  
   
   // isAfter: accepts two Date arguments, and returns true if the first is greater then the second.
   function isAfter(date1, date2) {
