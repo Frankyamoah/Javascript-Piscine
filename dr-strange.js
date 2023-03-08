@@ -64,11 +64,11 @@ function addWeek(date){
 
 function timeTravel({date, hour, minute, second}) {
     // create date object with the input time, use getTime method to extracct number of miliseconds
-    const newDate = new Date(date.getTime());
+    const newDate = new Date(date);
     // We then use the set method to modify date into standard format
     newDate.setHours(hour);
     newDate.setMinutes(minute);
     newDate.setSeconds(second);
     // use toString method to turn into legible format for reading
-    return newDate.toString();
+    return newDate;
 }
