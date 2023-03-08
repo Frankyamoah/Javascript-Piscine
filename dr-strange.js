@@ -7,7 +7,7 @@ Your purpose is to create a new function named addWeek, that takes a Date as an 
 function addWeek(date){
 // Calculate milliseconds between date given and epoch of the new 14 day week
     const epoch = new Date('0001-01-01');
-    const days = (date.getTime() - epoch .getTime()) / (1000 * 60 * 60 * 24); 
+    const days = (date.getTime() - epoch.getTime()) / (1000 * 60 * 60 * 24); 
 
 // Use module to determine which day of the 14 week it is
     const dayOfWeek = days % 14;
@@ -64,7 +64,7 @@ function addWeek(date){
 
 function timeTravel({date, hour, minute, second}) {
     // create date object with the input time, use getTime method to extracct number of miliseconds
-    const newDate = new Date(date.getTime);
+    const newDate = new Date(date.getTime());
     // We then use the set method to modify date into standard format
     newDate.setHours(hour);
     newDate.setMinutes(minute);
