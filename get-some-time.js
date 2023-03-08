@@ -1,14 +1,33 @@
-function firstDayWeek(weekNumber, year) {
-    const date = new Date(year);
-    const dayOfWeek = date.getDay();
-    const diff = 1 - dayOfWeek;
-    const januaryFirst = new Date(year, 0, 1);
-    const firstMonday = new Date(januaryFirst.setDate(januaryFirst.getDate() + diff));
-    const daysToAdd = (weekNumber - 1) * 7;
-    const result = new Date(firstMonday.setDate(firstMonday.getDate() + daysToAdd));
-    const dd = String(result.getDate()).padStart(2, '0');
-    const mm = String(result.getMonth() + 1).padStart(2, '0');
-    const yyyy = result.getFullYear();
-    return `${dd}-${mm}-${yyyy}`;
+function firstDayWeek(week, year) {
+    const jan1 = new Date(`${year}-01-01`);
+    const dayOfWeekJan1 = jan1.getDay();
+    const daysBeforeFirstMonday = dayOfWeekJan1 === 0 ? 6 : dayOfWeekJan1 - 1;
+    const daysInFirstWeek = 7 - daysBeforeFirstMonday;
+    const firstDayOfYear = new Date(`${year}-01-01`);
+  
+    let weekStartDate;
+    if (daysInFirstWeek >= 4) {
+      weekStartDate = new Date(firstDayOfYear.setDate(1 + daysInFirstWeek));
+    } else {
+      weekStartDate = new Date(firstDayOfYear.setDate(8 - daysInFirstWeek));
+    }
+  
+    const weekStartYear = weekStartDate.getFullYear();
+    if (week === 1 && weekStartYear !== parseInt(year)) {
+      weekStartDate = new Date(`${year}-01-01`);
+    } else if (weekStartYear !== parseInt(year)) {
+      weekStartDate = new Date(`${year}-01-01`);
+      weekStartDate.setDate(weekStartDate.getDate() + (daysBeforeFirstMonday + 7 * (week - 2)));
+    } else {
+      weekStartDate.setDate(weekStartDate.getDate() + 7 * (week - 1));
+    }
+  
+    const day = weekStartDate.getDate();
+    const month = weekStartDate.getMonth() + 1;
+    const yearFormatted = weekStartDate.getFullYear();
+    const dayFormatted = day < 10 ? `0${day}` : day;
+    const monthFormatted = month < 10 ? `0${month}` : month;
+  
+    return `${dayFormatted}-${monthFormatted}-${yearFormatted}`;
   }
   
