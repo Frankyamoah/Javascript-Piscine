@@ -6,7 +6,7 @@ Your purpose is to create a new function named addWeek, that takes a Date as an 
 
 function addWeek(date){
 // Calculate milliseconds between date given and epoch of the new 14 day week
-    const epoch = new date(0001-01-01);
+    const epoch = new date('0001-01-01');
     const days = (date.getTime() - epoch .getTime()) / (1000 * 60 * 60 * 24); 
 
 // Use module to determine which day of the 14 week it is
