@@ -1,27 +1,27 @@
-function every(arr, func) {
-    for (let i = 0; i < arr.length; i++) {
-      if (!func(arr[i], i, arr)) {
-        return false;
-      }
+// Curried function that multiplies two numbers
+function mult2(x) {
+    return function(y) {
+      return x * y;
     }
-    return true;
   }
   
-  function some(arr, func) {
-    for (let i = 0; i < arr.length; i++) {
-      if (func(arr[i], i, arr)) {
-        return true;
+  // Curried function that adds three numbers
+  function add3(x) {
+    return function(y) {
+      return function(z) {
+        return x + y + z;
       }
     }
-    return false;
   }
   
-  function none(arr, func) {
-    for (let i = 0; i < arr.length; i++) {
-      if (func(arr[i], i, arr)) {
-        return false;
+  // Curried function that subtracts four numbers
+  function sub4(x) {
+    return function(y) {
+      return function(z) {
+        return function(w) {
+          return x - y - z - w;
+        }
       }
     }
-    return true;
   }
   
