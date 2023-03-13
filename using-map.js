@@ -21,19 +21,13 @@ function fahrenheitToCelsius(tempsFahrenheit) {
     });
   }
 
-  function trimTemp(states) {
-    // create an array to store the trimmed objects
-    const trimmedStates = [];
-    
-    // iterate over the states array
-    for (let state of states) {
-      // create a new object to store the trimmed values
-      const trimmedState = {
-        city: state.city,
-        state: state.state,
-        region: state.region,
-        temperature: 'NaN°Celsius'
-      };
+  function trimTemp(arr) {
+    return arr.map(obj => ({
+      ...obj,
+      temperature: obj.temperature.replace(/\s+/g, '')
+    }));
+  }
+  
       
       // convert the temperature from Fahrenheit to Celsius if it exists
       if (state.temperature) {
