@@ -22,26 +22,33 @@ function fahrenheitToCelsius(tempsFahrenheit) {
   }
 
   function trimTemp(states) {
-    const trimmedStates = states.map((state) => {
-      const { temperature } = state;
-      const trimmedTemp = temperature.trim();
-      const unit = trimmedTemp.slice(-1);
-      const tempValue = trimmedTemp.slice(0, -1);
-  
-      let convertedTemp = tempValue;
-  
-      if (unit === 'F') {
-        convertedTemp = ((tempValue - 32) * 5) / 9;
-        convertedTemp = `${Math.round(convertedTemp)}°Celsius`;
-      } else if (unit === 'C') {
-        convertedTemp = `${tempValue}°Celsius`;
+    // create an array to store the trimmed objects
+    const trimmedStates = [];
+    
+    // iterate over the states array
+    for (let state of states) {
+      // create a new object to store the trimmed values
+      const trimmedState = {
+        city: state.city,
+        state: state.state,
+        region: state.region,
+        temperature: 'NaN°Celsius'
+      };
+      
+      // convert the temperature from Fahrenheit to Celsius if it exists
+      if (state.temperature) {
+        const fahrenheit = parseInt(state.temperature);
+        const celsius = Math.round((fahrenheit - 32) * 5/9);
+        trimmedState.temperature = `${celsius}°Celsius`;
       }
-  
-      return { ...state, temperature: convertedTemp };
-    });
-  
+      
+      // add the trimmed state object to the trimmedStates array
+      trimmedStates.push(trimmedState);
+    }
+    
     return trimmedStates;
   }
+  
   
   function tempForecasts(data) {
     return data.map((item) => {
