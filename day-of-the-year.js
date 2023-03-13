@@ -1,28 +1,14 @@
-/*
+
 function dayOfTheYear(date) {
-  // Extract the year, month and day of the input date
-  const year = date.getFullYear();
-  const month = date.getMonth();
-  const day = date.getDate();
-
-  // Create a new Date object with the same year but the first day of that year (January 1)
-  const firstDayOfYear = new Date(year, 0, 1);
-
-  // Calculate the difference between the input date and the first day of the year in milliseconds
-  const diffMs = date - firstDayOfYear;
-
-  // Convert the difference from milliseconds to days and round down
-  const diffDays = Math.floor(diffMs / (1000 * 60 * 60 * 24));
-
-  // Return the number of days since the first day of the year
-  return diffDays + 1;
-}
-*/
-function dayOfTheYear(date) {
-  const startOfYear = new Date(date.getFullYear(), 0, 1); // January 1st
-  const diffInMilliseconds = date - startOfYear;
-  const millisecondsPerDay = 1000 * 60 * 60 * 24;
-  const dayOfYear = Math.floor(diffInMilliseconds / millisecondsPerDay);
+  // variable for the first day of the year
+  const startOfYear = new Date(date.getFullYear(), 0, 1); 
+  // subtracts the input date from the start of the year answer is in milliseconds
+  const diffInMilliseconds = date - startOfYear; 
+  // calculates milliseconds in a day 
+  const millisecondsPerDay = 1000 * 60 * 60 * 24; 
+  // subtracts differience between input date and ms in a day rounded down to the nearest number
+  const dayOfYear = Math.floor(diffInMilliseconds / millisecondsPerDay); 
+  // checks if input date is first of january returns 1 if so
   if (date.getFullYear() === 1 && date.getMonth() === 0 && date.getDate() === 1) {
     return 1;
   }
