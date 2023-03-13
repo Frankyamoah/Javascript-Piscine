@@ -1,20 +1,27 @@
 // Map function implementation
-function map(arr, fn) {
-    // Create a new array to store the mapped values
-    const mappedArr = [];
+function map(arr, func) {
+    // Create an empty array to store the results
+    let result = [];
   
-    // Loop through the array and apply the function to each element
+    // Loop through each element of the input array
     for (let i = 0; i < arr.length; i++) {
-      mappedArr.push(fn(arr[i], i, arr));
+      // Call the provided function with the current element, index and the whole array
+      // Push the result of the function call to the results array
+      if (arr[i] !== undefined) {
+        result.push(func(arr[i], i, arr));
+      }
     }
   
-    // Return the new mapped array
-    return mappedArr;
+    // Return the results array
+    return result;
   }
   
   // FlatMap function implementation
-  function flatMap(arr, fn) {
-    // Use map() to apply the function to each element and flatten the result
-    return arr.map(fn).flat();
+  function flatMap(arr, func) {
+    // Use the reduce method to apply the provided function to each element of the input array
+    // and concatenate the results to a single array
+    return arr.reduce((acc, curr, index, arr) => 
+      acc.concat(func(curr, index, arr)), []
+    );
   }
   
