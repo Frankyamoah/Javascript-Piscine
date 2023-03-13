@@ -3,16 +3,17 @@ function citiesOnly(ObjArr){
    return cities
 }
 
-function upperCasingStates(words){
- const upperCasingStates = words.map(word => { // create new array using map method
-    const wordsArray = word.split(' '); // split words of mapArray by space delimiter
-// create new mapArray that iterates over each letter, split the first word and use toupper, apply tolower to rest of word
-    const capitalWordsAray = wordsArray.map(w => w.slice(0, 1).toUpperCase() + w.slice(1).toLowercase());
-    return capitalWordsAray.join(' '); // rejoin word and return it into the word mapArray
- });
- return upperCasingStates; // return the entire new string array
-}
-
+function upperCasingStates(states) {
+    return states.map(state => {
+      // convert each state to lowercase and split by space
+      const stateArray = state.toLowerCase().split(' ');
+      // capitalize the first letter of each word in the state name
+      const capitalizedStateArray = stateArray.map(word => word.charAt(0).toUpperCase() + word.slice(1));
+      // join the words back together and return the capitalized state name
+      return capitalizedStateArray.join(' ');
+    });
+  }
+  
 function fahrenheitToCelsius(tempsFahrenheit) {
     return tempsFahrenheit.map(tempF => {
       const tempC = (parseFloat(tempF) - 32) * 5 / 9;
@@ -27,7 +28,7 @@ function fahrenheitToCelsius(tempsFahrenheit) {
     });
     return result;
   }
-  
+
   function tempForecasts(data) {
     return data.map((item) => {
       // Extract values from the object
