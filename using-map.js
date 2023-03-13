@@ -28,20 +28,6 @@ function fahrenheitToCelsius(tempsFahrenheit) {
     }));
   }
   
-      
-      // convert the temperature from Fahrenheit to Celsius if it exists
-      if (state.temperature) {
-        const fahrenheit = parseInt(state.temperature);
-        const celsius = Math.round((fahrenheit - 32) * 5/9);
-        trimmedState.temperature = `${celsius}°Celsius`;
-      }
-      
-      // add the trimmed state object to the trimmedStates array
-      trimmedStates.push(trimmedState);
-    }
-    
-    return trimmedStates;
-  }
   
   
   function tempForecasts(data) {
