@@ -28,20 +28,19 @@ function fahrenheitToCelsius(tempsFahrenheit) {
     }));
   }
   
-  
-  
   function tempForecasts(data) {
     return data.map((item) => {
       // Extract values from the object
       const { city, temperature, state } = item;
   
+      // Remove non-digit characters (including spaces) from temperature string
+      const tempInFahrenheit = temperature.replace(/\D/g, '');
+  
       // Convert temperature from Fahrenheit to Celsius and round down
-      const celsius = Math.floor((parseInt(temperature) - 32) * (5 / 9));
+      const celsius = Math.floor((parseInt(tempInFahrenheit) - 32) * (5 / 9));
   
       // Return formatted string using template literals
       return `${celsius}°Celsius in ${city}, ${state.charAt(0).toUpperCase()}${state.slice(1)}`;
     });
   }
-  
-  
   
