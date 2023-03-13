@@ -22,14 +22,27 @@ function fahrenheitToCelsius(tempsFahrenheit) {
   }
 
   function trimTemp(states) {
-    return states.map((state) => {
-      const temperature = state.temperature.trim();
-      const unit = temperature.endsWith('°F') ? '°F' : '°Celsius';
-      const trimmedTemp = temperature.slice(0, -2);
-      return { ...state, temperature: `${trimmedTemp}${unit}` };
+    const trimmedStates = states.map((state) => {
+      const { temperature } = state;
+      const trimmedTemp = temperature.trim();
+      const unit = trimmedTemp.slice(-1);
+      const tempValue = trimmedTemp.slice(0, -1);
+  
+      let convertedTemp = tempValue;
+  
+      if (unit === 'F') {
+        convertedTemp = ((tempValue - 32) * 5) / 9;
+        convertedTemp = `${Math.round(convertedTemp)}°Celsius`;
+      } else if (unit === 'C') {
+        convertedTemp = `${tempValue}°Celsius`;
+      }
+  
+      return { ...state, temperature: convertedTemp };
     });
+  
+    return trimmedStates;
   }
-
+  
   function tempForecasts(data) {
     return data.map((item) => {
       // Extract values from the object
