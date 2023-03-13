@@ -20,16 +20,15 @@ function fahrenheitToCelsius(tempsFahrenheit) {
       return `${Math.floor(tempC)}°C`;
     });
   }
-
-  function trimTemp(arr) {
-    const result = arr.map(obj => {
-      const trimmedTemp = obj.temperature.trim();
-      return { city: obj.city, temperature: trimmedTemp };
+  function trimTemp(states) {
+    return states.map((state) => {
+      const temperature = state.temperature.trim();
+      const unit = temperature.endsWith('°F') ? '°F' : '°Celsius';
+      const trimmedTemp = temperature.slice(0, -2);
+      return { ...state, temperature: `${trimmedTemp}${unit}` };
     });
-    return result;
   }
-
-  function tempForecasts(data) {
+  nction tempForecasts(data) {
     return data.map((item) => {
       // Extract values from the object
       const { city, temperature, state } = item;
